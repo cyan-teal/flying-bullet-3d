@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bx6ak22a2qnfv"]
+
+[ext_resource type="Texture2D" uid="uid://d2d5hrm8hekwr" path="res://assets/icon.svg" id="1_7ukg5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xr6u"]
+
+[node name="Obstacle" type="StaticBody3D" unique_id=1347821876]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=267811049]
+shape = SubResource("BoxShape3D_3xr6u")
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=2139385777]
+texture = ExtResource("1_7ukg5")
