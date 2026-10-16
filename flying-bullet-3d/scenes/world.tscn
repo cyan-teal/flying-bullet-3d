@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://brl1rmvvlll0p"]
 
+[ext_resource type="PackedScene" uid="uid://f6521co3ei3v" path="res://scenes/bullet.tscn" id="1_nnsk1"]
+
 [node name="World" type="Node3D" unique_id=1877161576]
+
+[node name="Bullet" parent="." unique_id=1350337744 instance=ExtResource("1_nnsk1")]
+
+[node name="Camera" type="Camera3D" parent="Bullet" unique_id=1482661975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

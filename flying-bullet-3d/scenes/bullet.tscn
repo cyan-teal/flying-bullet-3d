@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://f6521co3ei3v"]
 
+[ext_resource type="Texture2D" path="res://icon.svg" id="1_mkf8s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h1aey"]
+
 [node name="Bullet" type="CharacterBody3D" unique_id=1350337744]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1911324071]
+shape = SubResource("CapsuleShape3D_h1aey")
+
+[node name="Sprite" type="Sprite3D" parent="." unique_id=1721412217]
+texture = ExtResource("1_mkf8s")
