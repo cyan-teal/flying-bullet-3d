@@ -22,6 +22,7 @@ project/assembly_name="Flying Bullet 3D"
 [physics]
 
 3d/physics_engine="Jolt Physics"
+3d/default_gravity=0.0
 
 [rendering]
 
