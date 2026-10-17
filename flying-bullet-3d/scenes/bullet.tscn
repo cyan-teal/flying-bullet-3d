@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h1aey"]
 
 [node name="Bullet" type="CharacterBody3D" unique_id=1350337744]
+motion_mode = 1
 script = ExtResource("1_y25gk")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1911324071]
