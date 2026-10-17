@@ -13,5 +13,4 @@ script = ExtResource("1_y25gk")
 shape = SubResource("CapsuleShape3D_h1aey")
 
 [node name="Sprite" type="Sprite3D" parent="." unique_id=1721412217]
-billboard = 1
 texture = ExtResource("1_mkf8s")
