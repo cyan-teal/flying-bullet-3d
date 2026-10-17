@@ -46,3 +46,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		turn_inputs_stack.erase(event_direction)
 	current_turn_direction = turn_inputs_stack.back()
 	
+
+
+func _process(_delta: float) -> void:
+	pass
+	
