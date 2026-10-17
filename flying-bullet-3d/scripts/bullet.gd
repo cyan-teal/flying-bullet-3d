@@ -1,9 +1,12 @@
 extends CharacterBody3D
 
 
-var current_turn_direction: Direction
-var turn_inputs_stack: Array[Direction]
 
+var rotational_velocity: Quaternion
+var up_pressed: bool
+var down_pressed: bool
+var left_pressed: bool
+var right_pressed: bool
 
 enum Direction {
 	NEUTRAL = 0,
@@ -15,9 +18,12 @@ enum Direction {
 
 
 func _ready() -> void:
-	current_turn_direction = Direction.NEUTRAL
-	turn_inputs_stack.clear()
-	turn_inputs_stack.push_front(Direction.NEUTRAL)
+	rotation = Vector3.UP
+	rotational_velocity = Quaternion.IDENTITY
+	up_pressed = false
+	down_pressed = false
+	left_pressed = false
+	right_pressed = false
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -25,26 +31,16 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_pressed():
 		event_is_pressed_kind = true
 	
-	var event_direction: Direction
 	if event.is_action("turn_up"):
-		event_direction  = Direction.UP
+		up_pressed = event_is_pressed_kind
 	elif event.is_action("turn_down"):
-		event_direction  = Direction.DOWN
+		down_pressed = event_is_pressed_kind
 	elif event.is_action("turn_left"):
-		event_direction  = Direction.LEFT
+		left_pressed = event_is_pressed_kind
 	elif event.is_action("turn_right"):
-		event_direction  = Direction.RIGHT
+		right_pressed = event_is_pressed_kind
 	else:
 		return
-	
-	if event_direction == turn_inputs_stack.back() and event_is_pressed_kind:
-		return
-	
-	if event_is_pressed_kind:
-		turn_inputs_stack.push_back(event_direction)
-	else:
-		turn_inputs_stack.erase(event_direction)
-	current_turn_direction = turn_inputs_stack.back()
 	
 
 
