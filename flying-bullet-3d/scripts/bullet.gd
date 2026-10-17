@@ -8,14 +8,6 @@ var down_pressed: bool
 var left_pressed: bool
 var right_pressed: bool
 
-enum Direction {
-	NEUTRAL = 0,
-	UP = 1,
-	DOWN = 2,
-	LEFT = 3, 
-	RIGHT = 4,
-}
-
 
 func _ready() -> void:
 	rotation = Vector3.UP
