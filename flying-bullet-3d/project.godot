@@ -48,7 +48,7 @@ turn_down={
 
 [physics]
 
-3d/physics_engine="Jolt Physics"
+3d/physics_engine="Dummy"
 3d/default_gravity=0.0
 3d/default_gravity_vector=Vector3(0, 0, 0)
 
