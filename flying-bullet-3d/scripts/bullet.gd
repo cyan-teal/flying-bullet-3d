@@ -68,6 +68,4 @@ func _process(delta: float) -> void:
 	
 
 	
-	velocity += Vector3.MODEL_FRONT * THRUST_STRENGTH * delta
-	#move_and_collide(velocity)
 	
