@@ -13,6 +13,7 @@ config_version=5
 config/name="Flying Bullet 3D"
 run/main_scene="uid://sasf8clwivq3"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/image="uid://by1nic7yhvmlq"
 config/icon="uid://bmhfljy066qw2"
 
 [dotnet]
