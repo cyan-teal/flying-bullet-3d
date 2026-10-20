@@ -1,12 +1,16 @@
 extends CharacterBody3D
 
 
-const THRUST_STRENGTH: float = 1.0
+const THRUST_STRENGTH: float = 10.0
 const PITCH_STRENGTH: float = 10.0
 const ROLL_STRENGTH: float = 10.0
+const FORWARDS_DRAG_COEFFICIENT: float = 0.65
 const PITCH_DRAG_COEFFICIENT: float = 0.65
 const ROLL_DRAG_COEFFICIENT: float = 0.065
+const INITIAL_FORWARDS_VELOCITY: float = 35.0
+const BOUNCE_FORWARD_VELOCITY_MULTIPLIER: float = 1.5
 
+var forward_velocity: float
 var pitch_velocity: float
 var roll_velocity: float
 var up_pressed: bool
@@ -17,6 +21,7 @@ var right_pressed: bool
 
 func _ready() -> void:
 	velocity = Vector3.ZERO
+	forward_velocity = INITIAL_FORWARDS_VELOCITY
 	pitch_velocity = 0
 	roll_velocity = 0
 	up_pressed = false
@@ -66,6 +71,15 @@ func _process(delta: float) -> void:
 	
 	orthonormalize()
 	
+	forward_velocity += THRUST_STRENGTH * delta
+	var forward_velocity_drag: float = forward_velocity * forward_velocity * FORWARDS_DRAG_COEFFICIENT * delta
+	if forward_velocity > 0:
+		forward_velocity_drag *= -1
+	forward_velocity += forward_velocity_drag
+	
+	velocity = basis.z * forward_velocity * delta
+	
+	var collision = move_and_collide(velocity)
 
 	
 	
