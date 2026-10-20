@@ -8,7 +8,7 @@ const FORWARDS_DRAG_COEFFICIENT: float = 0.65
 const PITCH_DRAG_COEFFICIENT: float = 0.65
 const ROLL_DRAG_COEFFICIENT: float = 0.065
 const INITIAL_FORWARDS_VELOCITY: float = 35.0
-const BOUNCE_FORWARD_VELOCITY_MULTIPLIER: float = 1.5
+const BOUNCE_FORWARDS_VELOCITY_MULTIPLIER: float = 1.5
 
 var forward_velocity: float
 var pitch_velocity: float
@@ -80,6 +80,30 @@ func _process(delta: float) -> void:
 	velocity = basis.z * forward_velocity * delta
 	
 	var collision = move_and_collide(velocity)
-
+	if collision != null:
+		bounce(collision)
 	
+
+
+func bounce(collision: KinematicCollision3D) -> void:
+	var collision_normal = collision.get_normal()
+	#var collision_collider_rid = collision.get_collider_rid()
+	#var pre_bounce_velocity = velocity
+	
+	
+	velocity = velocity.bounce(collision_normal) * BOUNCE_FORWARDS_VELOCITY_MULTIPLIER
+	rotation = velocity.normalized()
+	#rotation = velocity.angle()
+	
+	#position = collision.get_position() + pre_bounce_velocity
+	#var stuck = true
+	#while(stuck):
+		##position += Vector2.from_angle(rotation)
+		#var stuck_collision = move_and_collide(Vector3.ZERO, true)
+		#if stuck_collision == null:
+			##position += Vector2.from_angle(rotation)
+			#stuck = false
+		#elif stuck_collision.get_collider_rid() != collision_collider_rid:
+			#bounce(stuck_collision)
+			#stuck = false
 	
