@@ -1,8 +1,12 @@
 extends CharacterBody3D
 
 
+const THRUST_STRENGTH: float = 1.0
+const PITCH_STRENGTH: float = 10.0
+const ROLL_STRENGTH: float = 10.0
 
-var rotational_velocity: Quaternion
+var pitch_velocity: float
+var roll_velocity: float
 var up_pressed: bool
 var down_pressed: bool
 var left_pressed: bool
@@ -10,8 +14,9 @@ var right_pressed: bool
 
 
 func _ready() -> void:
-	rotation = Vector3.UP
-	rotational_velocity = Quaternion.IDENTITY
+	velocity = Vector3.ZERO
+	pitch_velocity = 0
+	roll_velocity = 0
 	up_pressed = false
 	down_pressed = false
 	left_pressed = false
@@ -36,6 +41,18 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	
 
 
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	if left_pressed:	
+		roll_velocity -= ROLL_STRENGTH * delta
+	elif right_pressed:
+		roll_velocity += ROLL_STRENGTH * delta
+	global_rotate(transform.basis.z, roll_velocity * delta)
+	
+	if up_pressed:
+		pitch_velocity += ROLL_STRENGTH * delta
+	elif down_pressed:
+		pitch_velocity -= ROLL_STRENGTH * delta
+	global_rotate(transform.basis.x, pitch_velocity * delta)
+	
+	orthonormalize()
 	
