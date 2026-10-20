@@ -18,6 +18,10 @@ boot_splash/use_filter=false
 boot_splash/image="uid://bmhfljy066qw2"
 config/icon="uid://bmhfljy066qw2"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Flying Bullet 3D"
