@@ -60,9 +60,9 @@ func _process(delta: float) -> void:
 	global_rotate(transform.basis.z, roll_velocity * delta)
 	
 	if up_pressed:
-		pitch_velocity += ROLL_STRENGTH * delta
+		pitch_velocity += PITCH_STRENGTH * delta
 	elif down_pressed:
-		pitch_velocity -= ROLL_STRENGTH * delta
+		pitch_velocity -= PITCH_STRENGTH * delta
 	var pitch_drag: float = pitch_velocity * pitch_velocity * PITCH_DRAG_COEFFICIENT * delta
 	if pitch_velocity > 0:
 		pitch_drag *= -1
