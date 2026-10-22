@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bx6ak22a2qnfv"]
 
-[ext_resource type="Texture2D" uid="uid://d2d5hrm8hekwr" path="res://assets/icon.svg" id="1_7ukg5"]
+[ext_resource type="Texture2D" uid="uid://bmhfljy066qw2" path="res://assets/blue_block.png" id="1_7ukg5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xr6u"]
 
