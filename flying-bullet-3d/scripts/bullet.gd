@@ -49,7 +49,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if left_pressed:	
+	if left_pressed:
 		roll_velocity -= ROLL_STRENGTH * delta
 	elif right_pressed:
 		roll_velocity += ROLL_STRENGTH * delta
