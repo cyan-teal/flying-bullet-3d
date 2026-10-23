@@ -88,11 +88,14 @@ func _process(delta: float) -> void:
 func bounce(collision: KinematicCollision3D) -> void:
 	var collision_normal = collision.get_normal()
 	#var collision_collider_rid = collision.get_collider_rid()
-	#var pre_bounce_velocity = velocity
+	var pre_bounce_velocity = velocity
 	
 	
-	velocity = velocity.bounce(collision_normal) * BOUNCE_FORWARDS_VELOCITY_MULTIPLIER
-	rotation = velocity.normalized()
+	#velocity = velocity.bounce(collision_normal) * BOUNCE_FORWARDS_VELOCITY_MULTIPLIER
+	position -= pre_bounce_velocity
+	rotation = rotation.reflect(collision_normal)
+	#global_rotate(transform.basis.y, PI)
+	#print(velocity)
 	#rotation = velocity.angle()
 	
 	#position = collision.get_position() + pre_bounce_velocity
