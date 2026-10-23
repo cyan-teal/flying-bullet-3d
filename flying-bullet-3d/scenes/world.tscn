@@ -7,11 +7,13 @@
 
 [node name="Bullet" parent="." unique_id=1350337744 instance=ExtResource("1_nnsk1")]
 
-[node name="Camera" type="Camera3D" parent="Bullet" unique_id=1482661975]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -3)
-
 [node name="Obstacle" parent="." unique_id=1347821876 instance=ExtResource("2_rwgxs")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1, 1, 10)
 
 [node name="Floor" parent="." unique_id=594788612 instance=ExtResource("2_rwgxs")]
 transform = Transform3D(50, 0, 0, 0, -2.1855694e-06, 50, 0, -50, -2.1855694e-06, 0, -45, 0)
+
+[node name="CameraManipulator" type="Node3D" parent="." unique_id=153481947]
+
+[node name="Camera" type="Camera3D" parent="CameraManipulator" unique_id=1482661975]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -3)
