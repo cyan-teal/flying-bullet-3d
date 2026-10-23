@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
 
+signal moved(transform: Transform3D)
+
+
 const THRUST_STRENGTH: float = 10.0
 const PITCH_STRENGTH: float = 10.0
 const ROLL_STRENGTH: float = 10.0
@@ -83,6 +86,7 @@ func _process(delta: float) -> void:
 	if collision != null:
 		bounce(collision)
 	
+	moved.emit(transform)
 
 
 func bounce(collision: KinematicCollision3D) -> void:
