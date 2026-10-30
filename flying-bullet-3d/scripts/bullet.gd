@@ -93,12 +93,15 @@ func bounce(collision: KinematicCollision3D) -> void:
 	var collision_normal = collision.get_normal()
 	var pre_bounce_velocity = velocity
 	
-	var bounced_velocity = pre_bounce_velocity.reflect(collision_normal)
-	position -= bounced_velocity * 1000
-	print(pre_bounce_velocity)
-	print(bounced_velocity)
+	var bounced_velocity := pre_bounce_velocity.reflect(collision_normal)
+	position -= bounced_velocity * 36
 	
-	#rotate
+	
+	transform.basis = Basis()
+	basis.z = bounced_velocity.rotated(Vector3(0.0, 1.0, 0.0), 90.0))
+	basis.y = bounced_velocity.rotated(Vector3(1.0, 0.0, 0.0), 90.0))
+	basis.x = bounced_velocity
+	
 	
 	
 	
