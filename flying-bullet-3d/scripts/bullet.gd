@@ -91,26 +91,31 @@ func _process(delta: float) -> void:
 
 func bounce(collision: KinematicCollision3D) -> void:
 	var collision_normal = collision.get_normal()
-	#var collision_collider_rid = collision.get_collider_rid()
 	var pre_bounce_velocity = velocity
 	
+	var bounced_velocity = pre_bounce_velocity.reflect(collision_normal)
+	position -= bounced_velocity * 1000
+	print(pre_bounce_velocity)
+	print(bounced_velocity)
 	
-	#velocity = velocity.bounce(collision_normal) * BOUNCE_FORWARDS_VELOCITY_MULTIPLIER
-	position -= pre_bounce_velocity
-	rotation = rotation.reflect(collision_normal)
-	#global_rotate(transform.basis.y, PI)
-	#print(velocity)
-	#rotation = velocity.angle()
+	#rotate
 	
-	#position = collision.get_position() + pre_bounce_velocity
-	#var stuck = true
-	#while(stuck):
-		##position += Vector2.from_angle(rotation)
-		#var stuck_collision = move_and_collide(Vector3.ZERO, true)
-		#if stuck_collision == null:
-			##position += Vector2.from_angle(rotation)
-			#stuck = false
-		#elif stuck_collision.get_collider_rid() != collision_collider_rid:
-			#bounce(stuck_collision)
-			#stuck = false
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
